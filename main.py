@@ -1,14 +1,18 @@
-# Diccionario inicial con los datos de los vuelos
-vuelos_dict = {
-    "AV101": {"pasajeros": 45, "precio": 480.0},
-    "LA202": {"pasajeros": 120, "precio": 650.0},
-    "CM303": {"pasajeros": 30, "precio": 520.0},
-    "IB404": {"pasajeros": 150, "precio": 300.0}
-}
+# ------------------------------------------------------------------------------
+# PARTE 2 - INTEGRANTE 2: Cálculo de ingresos y descuentos
+# ------------------------------------------------------------------------------
+def calcular_precio_final(precio_original):
+    """
+    Aplica un descuento del 15% si el precio del tiquete supera las 500 unidades.
+    """
+    if precio_original > 500:
+        return precio_original * 0.85
+    return precio_original
 
-def main():
-    print("=== SISTEMA DE GESTIÓN DE VUELOS ===")
-    print("Programa base listo.")
-
-if __name__ == "__main__":
-    main()
+def calcular_ingreso_vuelo(pasajeros, precio_original):
+    """
+    Calcula el precio final del tiquete y el ingreso total por vuelo.
+    """
+    precio_final = calcular_precio_final(precio_original)
+    ingreso_total = pasajeros * precio_final
+    return precio_final, ingreso_total
