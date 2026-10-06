@@ -1,6 +1,34 @@
-# ------------------------------------------------------------------------------
-# PARTE 3 - INTEGRANTE 3: Procesamiento y detección de baja ocupación
-# ------------------------------------------------------------------------------
+def obtener_vuelos():
+    """
+    Retorna un diccionario con la información inicial de los vuelos de la aerolínea.
+    Cada vuelo incluye el número de pasajeros y el precio original del tiquete.
+    """
+    vuelos = {
+        "AV-101": {"pasajeros": 120, "precio_tiquete": 650.0},
+        "AV-102": {"pasajeros": 35,  "precio_tiquete": 450.0},
+        "AV-103": {"pasajeros": 85,  "precio_tiquete": 550.0},
+        "AV-104": {"pasajeros": 42,  "precio_tiquete": 700.0},
+        "AV-105": {"pasajeros": 150, "precio_tiquete": 300.0},
+        "AV-106": {"pasajeros": 28,  "precio_tiquete": 520.0}
+    }
+    return vuelos
+
+def calcular_precio_final(precio_original):
+    """
+    Aplica un descuento del 15% si el precio del tiquete supera las 500 unidades.
+    """
+    if precio_original > 500:
+        return precio_original * 0.85
+    return precio_original
+
+def calcular_ingreso_vuelo(pasajeros, precio_original):
+    """
+    Calcula el precio final del tiquete y el ingreso total por vuelo.
+    """
+    precio_final = calcular_precio_final(precio_original)
+    ingreso_total = pasajeros * precio_final
+    return precio_final, ingreso_total
+
 def procesar_vuelos(vuelos):
     """
     Recorre el diccionario, determina ingresos y detecta baja ocupación (< 50 pasajeros).
@@ -24,10 +52,6 @@ def procesar_vuelos(vuelos):
 
     return vuelos_procesados
 
-
-# ------------------------------------------------------------------------------
-# PARTE 4 - INTEGRANTE 4: Ordenamiento y generación del reporte final
-# ------------------------------------------------------------------------------
 def generar_reporte():
     """
     Ordena los vuelos de mayor a menor ingreso, suma el total global e imprime el reporte.
@@ -35,17 +59,14 @@ def generar_reporte():
     vuelos_iniciales = obtener_vuelos()
     vuelos_procesados = procesar_vuelos(vuelos_iniciales)
 
-    # Ordenar por ingreso total (de mayor a menor)
     vuelos_ordenados = sorted(
         vuelos_procesados.items(),
         key=lambda item: item[1]["ingreso_total"],
         reverse=True
     )
 
-    # Cálculo del ingreso global
     ingreso_global = sum(datos["ingreso_total"] for _, datos in vuelos_ordenados)
 
-    # Impresión del reporte final
     print("=" * 80)
     print("           REPORTE FINAL DE GESTIÓN DE VUELOS DE LA AEROLÍNEA           ")
     print("=" * 80)

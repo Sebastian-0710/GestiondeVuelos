@@ -1,6 +1,6 @@
 ACTIVIDADES DEL EQUIPO - GESTIÓN DE VUELOS
 ==========================================
 Integrantes:
-1. Tu Nombre - Developer 1
-2. Nombre de tu compañero 2 - Developer 2
+1. Yair lara - Developer 1
+2. sebastian arias - Developer 2
 3. Nombre de tu compañero 3 - Developer 3
