@@ -2,5 +2,8 @@ ACTIVIDADES DEL EQUIPO - GESTIÓN DE VUELOS
 ==========================================
 Integrantes:
 1. Yair lara - Developer 1
+Creación y estructuración de los datos iniciales de los vuelos
 2. sebastian arias - Developer 2
+Implementación de la función para el cálculo de ingresos y aplicación del 15% de descuento para tiquetes > 500
 3. Angel sanchez - Developer 3
+Implementación del filtro de baja ocupación (< 50 pasajeros), ordenamiento por ingresos de mayor a menor y reporte final
